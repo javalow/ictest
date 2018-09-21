@@ -1,0 +1,8 @@
+{
+  "name": "ictest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "e52f80dd"
+}
