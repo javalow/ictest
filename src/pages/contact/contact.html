@@ -8,10 +8,14 @@
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
+    <ion-list-header *ngIf="visible()"># of Messages:</ion-list-header>
   </ion-list>
+
+
+  <!-- <ion-fab center bottom>
+     <button ion-fab (click)="launch()">
+       <ion-icon name="bug"></ion-icon>
+     </button>
+
+   </ion-fab> -->
 </ion-content>
