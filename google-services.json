@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "272316968901",
+    "firebase_url": "https://avaapp-db.firebaseio.com",
+    "project_id": "avaapp-db",
+    "storage_bucket": "avaapp-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272316968901:android:5db00275e10189cd",
+        "android_client_info": {
+          "package_name": "com.avalow.coach.dbconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272316968901-pthfeajq7bvt7a85k1lk15li3ii51nvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEfrfL1CTO1fpWFc0PDRgiLMUFc5FCQoQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:272316968901:android:e533962a90c0be6b",
+        "android_client_info": {
+          "package_name": "com.avalow.gardencoach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "272316968901-pthfeajq7bvt7a85k1lk15li3ii51nvr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEfrfL1CTO1fpWFc0PDRgiLMUFc5FCQoQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,25 +1,57 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavController } from 'ionic-angular';
+import { AuthService } from '../../services/auth.service';
+import { HomePage } from '../home/home';
+// import { SignupPage } from '../signup/signup.page';
+// import { ResetPasswordPage } from '../reset-password/reset-password.page';
 
-@IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+	selector: 'as-page-login',
+	templateUrl: './login.html'
 })
 export class LoginPage {
+	form: FormGroup;
+	loginError: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+	constructor(
+		private navCtrl: NavController,
+		private auth: AuthService,
+		fb: FormBuilder
+	) {
+		this.form = fb.group({
+			email: ['', Validators.compose([Validators.required, Validators.email])],
+			password: ['', Validators.compose([Validators.required])]
+		});
+	}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+	login() {
+		let data = this.form.value;
 
+		if (!data.email) {
+			return;
+		}
+
+		let credentials = {
+			email: data.email,
+			password: data.password
+		};
+		this.auth.signInWithEmail(credentials)
+			.then(
+				() => this.navCtrl.setRoot(HomePage),
+				error => this.loginError = error.message
+			);
+
+
+	}
+
+
+	// signup() {
+	// 	this.navCtrl.push(SignupPage);
+	// }
+  //
+	// resetPassword() {
+	// 	this.navCtrl.push(ResetPasswordPage);
+	// }
 }

@@ -8,6 +8,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { WelcomePage } from '../pages/welcome/welcome.page';
+import { AuthService } from '../services/auth.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -15,8 +17,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Camera } from '@ionic-native/camera';
 import { PhotoProvider } from '../providers/photo/photo';
 import { IonicStorageModule } from '@ionic/storage';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { Pro } from '@ionic/pro';
 import { Intercom } from '@ionic-native/intercom';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
+import { config } from '../environments/environment';
+
 
 Pro.init('e52f80dd', {
  appVersion: '0.0.1'
@@ -52,12 +60,15 @@ export class MyErrorHandler implements ErrorHandler {
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    WelcomePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    NgxErrorsModule,
+    AngularFireModule.initializeApp(config)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,6 +86,9 @@ export class MyErrorHandler implements ErrorHandler {
     IonicErrorHandler,
     [{provide: ErrorHandler, useClass: MyErrorHandler}],
     PhotoProvider,
+    AuthService,
+		AngularFireAuth,
+		AngularFireDatabase,
     Intercom
   ]
 })

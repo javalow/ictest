@@ -1,0 +1,32 @@
+<ion-content no-bounce>
+	<ion-slides #slides pager>
+
+		<ion-slide>
+			<img src="assets/imgs/ica-slidebox-img-1.png" class="slide-image"/>
+			<h2 class="slide-title">
+				Welcome to <b>Avalow Garden Coaching</b>
+			</h2>
+			<p>We look forward to growing with you!</p>
+		</ion-slide>
+
+		<ion-slide>
+			<img src="assets/imgs/ica-slidebox-img-2.png" class="slide-image"/>
+			<h2 class="slide-title" >Garden Details</h2>
+			<p><b>You should have received your login information</b> We're here to help!</p>
+		</ion-slide>
+
+		<ion-slide>
+			<img src="assets/imgs/ica-slidebox-img-3.png" class="slide-image"/>
+			<h2 class="slide-title">Ready to Play?</h2>
+
+			<button ion-button icon-right full clear (click)="login()">
+				Log in <ion-icon name="log-in"></ion-icon>
+			</button>
+
+			<button ion-button icon-right full clear (click)="startApp()">
+				Enter as anonymous<ion-icon name="arrow-forward"></ion-icon>
+			</button>
+		</ion-slide>
+
+	</ion-slides>
+</ion-content>
