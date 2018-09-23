@@ -2,8 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { NavController } from 'ionic-angular';
-import { AuthService } from '../../services/auth.service';
-import { HomePage } from '../home/home';
+// import { AuthService } from '../../services/auth.service';
+import { TabsPage } from '../tabs/tabs';
+import { AngularFireAuth } from '@angular/fire/auth';
+// import * as firebase from 'firebase/app';
 // import { SignupPage } from '../signup/signup.page';
 // import { ResetPasswordPage } from '../reset-password/reset-password.page';
 
@@ -14,10 +16,12 @@ import { HomePage } from '../home/home';
 export class LoginPage {
 	form: FormGroup;
 	loginError: string;
+	user: firebase.User;
 
 	constructor(
 		private navCtrl: NavController,
-		private auth: AuthService,
+		// private auth: AuthService,
+		private auth: AngularFireAuth,
 		fb: FormBuilder
 	) {
 		this.form = fb.group({
@@ -37,20 +41,26 @@ export class LoginPage {
 			email: data.email,
 			password: data.password
 		};
-		this.auth.signInWithEmail(credentials)
+
+		this.auth.auth.signInWithEmailAndPassword(credentials.email, credentials.password)
 			.then(
-				() => this.navCtrl.setRoot(HomePage),
+				() => this.navCtrl.setRoot(TabsPage),
 				error => this.loginError = error.message
 			);
 
 
 	}
 
-
+	// this.auth.signInWithEmail(credentials)
+	// 	.then(
+	// 		() => this.navCtrl.setRoot(HomePage),
+	// 		error => this.loginError = error.message
+	// 	);
+	//
 	// signup() {
 	// 	this.navCtrl.push(SignupPage);
 	// }
-  //
+	//
 	// resetPassword() {
 	// 	this.navCtrl.push(ResetPasswordPage);
 	// }

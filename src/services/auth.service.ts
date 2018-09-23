@@ -11,7 +11,6 @@ import * as firebase from 'firebase/app';
 export class AuthService {
 	private user: firebase.User;
 
-
 	constructor(public afAuth: AngularFireAuth) {
 		afAuth.authState.subscribe(user => {
 			this.user = user;
@@ -19,25 +18,26 @@ export class AuthService {
 	}
 
 	getName() {
-		return this.user && (this.user.displayName || this.getUsername());
+		// return this.user && (this.user.displayName);
+		return "Ava";
 	}
 
-	getUsername() {
-		let email = this.getEmail() || '';
-		return email != null ? email : 'Anonymous';
-	}
+	// getUsername() {
+	// 	return this.user.email;
+	// }
 
 	getEmail() {
-		return this.user && this.user.email;
+		// return this.user && this.user.email;
+		return "j@avalow.com";
 	}
 
-	get authenticated(): boolean {
-		return this.user !== null;
-	}
-
-	get id(): string {
-		return this.authenticated ? this.user.uid : '';
-	}
+	// get authenticated(): boolean {
+	// 	return this.user !== null;
+	// }
+	//
+	// get id(): string {
+	// 	return this.authenticated ? this.user.uid : '';
+	// }
 
 	signInWithEmail(credentials) {
 		console.log('Sign in with email');

@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { WelcomePage } from '../pages/welcome/welcome.page';
 import { AuthService } from '../services/auth.service';
+import { DataService } from '../services/data.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +24,7 @@ import { Intercom } from '@ionic-native/intercom';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
-import { config } from '../environments/environment';
+import { environment } from '../environments/environment';
 
 
 Pro.init('e52f80dd', {
@@ -68,7 +69,7 @@ export class MyErrorHandler implements ErrorHandler {
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     NgxErrorsModule,
-    AngularFireModule.initializeApp(config)
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -88,6 +89,7 @@ export class MyErrorHandler implements ErrorHandler {
     PhotoProvider,
     AuthService,
 		AngularFireAuth,
+    DataService,
 		AngularFireDatabase,
     Intercom
   ]
