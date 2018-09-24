@@ -78,7 +78,8 @@ export class MyErrorHandler implements ErrorHandler {
     ContactPage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    WelcomePage
   ],
   providers: [
     StatusBar,
