@@ -6,6 +6,7 @@ import { DataService } from '../../services/data.service';
 import { AboutPage } from '../about/about';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage {
   public items: any [] = [];
   public itemRef: firebase.database.Reference = firebase.database().ref('/ftproducts');
 
-constructor(){}
+constructor(private auth: AuthService){}
 ionViewDidLoad() {
   this.itemRef.on('value', itemSnapshot => {
     this.items = [];

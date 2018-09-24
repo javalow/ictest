@@ -66,7 +66,10 @@ export class MyErrorHandler implements ErrorHandler {
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      iconMode: 'ios',
+      pageTransition: 'ios-transition'
+    }),
     IonicStorageModule.forRoot(),
     NgxErrorsModule,
     AngularFireModule.initializeApp(environment.firebase)

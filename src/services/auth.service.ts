@@ -2,9 +2,10 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase/app';
 // import AuthProvider = firebase.auth.AuthProvider;
-// import { Observable } from 'rxjs/Observable';
-// import { Http } from '@angular/http';
-// import 'rxjs/add/operator/map';
+import { auth } from 'firebase/app';
+import { Observable } from 'rxjs/Observable';
+import { Http } from '@angular/http';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -18,26 +19,26 @@ export class AuthService {
 	}
 
 	getName() {
-		// return this.user && (this.user.displayName);
-		return "Ava";
+		return this.user && (this.user.displayName);
+
 	}
 
-	// getUsername() {
-	// 	return this.user.email;
-	// }
+	getUsername() {
+		return this.user.email;
+	}
 
 	getEmail() {
-		// return this.user && this.user.email;
-		return "j@avalow.com";
+		return this.user && this.user.email;
+
 	}
 
-	// get authenticated(): boolean {
-	// 	return this.user !== null;
-	// }
-	//
-	// get id(): string {
-	// 	return this.authenticated ? this.user.uid : '';
-	// }
+	get authenticated(): boolean {
+		return this.user !== null;
+	}
+
+	get id(): string {
+		return this.authenticated ? this.user.uid : '';
+	}
 
 	signInWithEmail(credentials) {
 		console.log('Sign in with email');
@@ -49,7 +50,7 @@ export class AuthService {
 	}
 
 	signOut() {
-		this.afAuth.auth.signOut();
+    this.afAuth.auth.signOut();
 	}
 
 

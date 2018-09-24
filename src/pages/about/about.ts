@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { PhotoProvider } from '../../providers/photo/photo';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'page-about',
@@ -9,7 +10,7 @@ import { PhotoProvider } from '../../providers/photo/photo';
 export class AboutPage {
 
   currentImage: any;
- constructor(public navCtrl: NavController, public photoService: PhotoProvider) {
+ constructor(public navCtrl: NavController, public photoService: PhotoProvider, private auth: AuthService) {
 }
 ngOnInit() {
    this.photoService.loadSaved();

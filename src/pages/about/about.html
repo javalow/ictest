@@ -1,8 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Garden Photos
     </ion-title>
+    <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
@@ -23,3 +26,9 @@
      <img [src]="currentImage" *ngIf="currentImage">
    </ion-fab>
 </ion-content>
+
+<ion-tabs selectedIndex="2">
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="camera"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="ios-chatbubbles-outline"></ion-tab>
+</ion-tabs>

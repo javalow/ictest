@@ -17,4 +17,5 @@ export class TabsPage {
   constructor(private auth: AuthService,) {
 
   }
+  
 }

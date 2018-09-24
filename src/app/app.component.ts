@@ -71,12 +71,12 @@ export class MyApp {
       		// set our app's pages
       		this.pages = [
       			{ title: 'Home', component: TabsPage, icon: 'home' },
-      			{ title: 'Garden Chat', component: ContactPage, icon: 'chatbubbles' },
+      			{ title: 'Garden Chat', component: ContactPage, icon: 'ios-chatbubbles-outline' },
       			// { title: 'Recipes & Tips', component: NewsListPage, icon: 'paper' },
       			// { title: 'Homework', component: CatalogItemsPage, icon: 'list-box' },
       			// { title: 'Garden Items', component: ProductsPage, icon: 'cart' },
       			// { title: 'Food Menu', component: MenuItemsPage, icon: 'menu' },
-      			{ title: 'Garden Sharing', component: AboutPage, icon: 'list' },
+      			{ title: 'Garden Sharing', component: AboutPage, icon: 'camera' },
       			// { title: 'Garden Details', component: UserProfilesPage, icon: 'people' }
       			// { title: 'Real Estate', component: PropertiesPage, icon: 'book' },
       			// { title: 'Galleries', component: GalleriesPage, icon: 'images' },
@@ -88,23 +88,23 @@ export class MyApp {
       		this.platform.ready().then(() => {
       			this.statusBar.styleDefault();
       		});
-
-      		this.auth.afAuth.authState
-      			.subscribe(
-      				user => {
-      					if (user) {
-      						this.rootPage = TabsPage;
-      					} else {
-      						this.rootPage = LoginPage;
-      					}
-      				},
-      				() => {
-      					this.rootPage = WelcomePage;
-      				}
-      			);
-      			// this.intercom.registerIdentifiedUser({email:this.auth.getEmail});
-            this.intercom.registerIdentifiedUser("j@avalow.com");
-      			this.intercom.registerForPush();
+          this.rootPage = LoginPage;
+      		// this.auth.afAuth.authState
+      		// 	.subscribe(
+      		// 		user => {
+      		// 			if (user) {
+      		// 				this.rootPage = TabsPage;
+      		// 			} else {
+      		// 				this.rootPage = LoginPage;
+      		// 			}
+      		// 		},
+      		// 		() => {
+      		// 			this.rootPage = WelcomePage;
+      		// 		}
+      		// 	);
+      		// 	// this.intercom.registerIdentifiedUser({email:this.auth.getEmail});
+          //   this.intercom.registerIdentifiedUser("j@avalow.com");
+      		// 	this.intercom.registerForPush();
 
       	}
 

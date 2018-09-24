@@ -2,6 +2,9 @@
 	<ion-header>
 		<ion-toolbar>
 			<ion-title>Account</ion-title>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
 		</ion-toolbar>
 	</ion-header>
 
@@ -31,6 +34,6 @@
 <ion-nav id="nav" [root]="rootPage" #content swipe-back-enabled="false"></ion-nav>
 <ion-tabs>
   <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>
+  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="camera"></ion-tab>
+  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="ios-chatbubbles-outline"></ion-tab>
 </ion-tabs>
