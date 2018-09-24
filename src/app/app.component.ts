@@ -1,13 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { MenuController, Nav, Platform } from 'ionic-angular';
+import { App, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Intercom } from '@ionic-native/intercom';
 
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../services/auth.service';
-// import { AboutPage } from '../pages/about/about';
-// import { ContactPage } from '../pages/contact/contact';
+import { AboutPage } from '../pages/about/about';
+import { ContactPage } from '../pages/contact/contact';
 import { WelcomePage } from '../pages/welcome/welcome.page';
 import { LoginPage } from '../pages/login/login';
 
@@ -48,41 +48,40 @@ export class MyApp {
 //
 //   }
 // }
-  // pages;
+  pages;
 	rootPage;
-
-
-	// private platform;
-	// private menu: MenuController;
+  app;
+	private platform;
+	private menu: MenuController;
 
 	@ViewChild(Nav) nav: Nav;
 
 	constructor(
-
-		private platform: Platform,
-		// menu: MenuController,
+    app: App,
+		platform: Platform,
+		menu: MenuController,
 		private statusBar: StatusBar,
 		private auth: AuthService,
 		private intercom: Intercom) {
-      // this.menu = menu;
-
+          this.app = app;
+          this.menu = menu;
       		this.platform = platform;
       		this.initializeApp();
 
       		// set our app's pages
-      		// this.pages = [
-      		// 	{ title: 'Home', component: TabsPage, icon: 'home' },
-      		// 	{ title: 'Garden Chat', component: ContactPage, icon: 'chatbubbles' },
-      		// 	// { title: 'Recipes & Tips', component: NewsListPage, icon: 'paper' },
-      		// 	// { title: 'Homework', component: CatalogItemsPage, icon: 'list-box' },
-      		// 	// { title: 'Garden Items', component: ProductsPage, icon: 'cart' },
-      		// 	// { title: 'Food Menu', component: MenuItemsPage, icon: 'menu' },
-      		// 	{ title: 'Garden Sharing', component: AboutPage, icon: 'list' },
-      		// 	// { title: 'Garden Details', component: UserProfilesPage, icon: 'people' }
-      		// 	// { title: 'Real Estate', component: PropertiesPage, icon: 'book' },
-      		// 	// { title: 'Galleries', component: GalleriesPage, icon: 'images' },
-          //
-      		// ];
+      		this.pages = [
+      			{ title: 'Home', component: TabsPage, icon: 'home' },
+      			{ title: 'Garden Chat', component: ContactPage, icon: 'chatbubbles' },
+      			// { title: 'Recipes & Tips', component: NewsListPage, icon: 'paper' },
+      			// { title: 'Homework', component: CatalogItemsPage, icon: 'list-box' },
+      			// { title: 'Garden Items', component: ProductsPage, icon: 'cart' },
+      			// { title: 'Food Menu', component: MenuItemsPage, icon: 'menu' },
+      			{ title: 'Garden Sharing', component: AboutPage, icon: 'list' },
+      			// { title: 'Garden Details', component: UserProfilesPage, icon: 'people' }
+      			// { title: 'Real Estate', component: PropertiesPage, icon: 'book' },
+      			// { title: 'Galleries', component: GalleriesPage, icon: 'images' },
+
+      		];
       	}
 
       	initializeApp() {
@@ -96,7 +95,7 @@ export class MyApp {
       					if (user) {
       						this.rootPage = TabsPage;
       					} else {
-      						this.rootPage = WelcomePage;
+      						this.rootPage = LoginPage;
       					}
       				},
       				() => {
@@ -109,25 +108,25 @@ export class MyApp {
 
       	}
 
-      	// openPage(page) {
-      	// 	this.menu.close();
-      	// 	this.nav.setRoot(page.component);
-      	// 	//intercom.registerIdentifiedUser({email: this.auth.getEmail});
-      	// }
-        //
-      	// logout() {
-      	// 	this.menu.close();
-        //
-      	// 	this.auth.signOut();
-      	// 	this.nav.setRoot(WelcomePage);
-      	// }
-        //
-      	// login() {
-      	// 	this.menu.close();
-        //
-      	// 	this.auth.signOut();
-      	// 	this.nav.setRoot(LoginPage);
-      	// }
+      	openPage(page) {
+      		this.menu.close();
+      		this.nav.setRoot(page.component);
+      		//intercom.registerIdentifiedUser({email: this.auth.getEmail});
+      	}
+
+      	logout() {
+      		this.menu.close();
+
+      		this.auth.signOut();
+      		this.nav.setRoot(WelcomePage);
+      	}
+
+      	login() {
+      		this.menu.close();
+
+      		this.auth.signOut();
+      		this.nav.setRoot(LoginPage);
+      	}
       }
 
 

@@ -10,8 +10,13 @@
     This starter project comes with simple tabs-based layout for apps
     that are going to primarily use a Tabbed UI.
   </p>
+<h2>Available Products</h2>
+<p></p>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      {{ item.title }}
+    </ion-item>
+  </ion-list>
+  <!-- <h1>{{ (item?.name) }}</h1> -->
 
-
-  <h1>{{ (item | async)?.name }}</h1>
-  
 </ion-content>
