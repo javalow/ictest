@@ -25,7 +25,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { Badge } from '@ionic-native/badge';
+// import { Badge } from '@ionic-native/badge';
 
 
 Pro.init('e52f80dd', {
@@ -97,7 +97,7 @@ export class MyErrorHandler implements ErrorHandler {
     DataService,
 		AngularFireDatabase,
     Intercom,
-    Badge,
+    // Badge,
   ]
 })
 export class AppModule {}

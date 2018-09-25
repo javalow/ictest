@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { App, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Intercom } from '@ionic-native/intercom';
-import { Badge } from '@ionic-native/badge';
+// import { Badge } from '@ionic-native/badge';
 
 
 import { TabsPage } from '../pages/tabs/tabs';
@@ -65,7 +65,8 @@ export class MyApp {
 		private statusBar: StatusBar,
 		private auth: AuthService,
 		private intercom: Intercom,
-    private badge: Badge) {
+    // private badge: Badge
+    ) {
           this.app = app;
           this.menu = menu;
       		this.platform = platform;
@@ -90,8 +91,9 @@ export class MyApp {
       	initializeApp() {
       		this.platform.ready().then(() => {
       			this.statusBar.styleDefault();
-            this.messages = this.intercom.unreadConversationCount();
-            this.badge.set(this.messages);
+            // this.messages = this.intercom.unreadConversationCount();
+            // this.badge.set(this.messages);
+            // console.log('got past badge stuff');
       		});
           // this.rootPage = LoginPage;
       		this.auth.afAuth.authState
@@ -99,6 +101,8 @@ export class MyApp {
       				user => {
       					if (user) {
       						this.rootPage = TabsPage;
+                  console.log('signed in user:');
+                  console.log(user.email);
       					} else {
       						this.rootPage = WelcomePage;
       					}
@@ -109,8 +113,8 @@ export class MyApp {
       			);
       			// this.intercom.registerIdentifiedUser({email:this.auth.getEmail, userID:this.auth.getId});
             this.intercom.registerIdentifiedUser({email:this.auth.getEmail});
-
       			this.intercom.registerForPush();
+            console.log('intercom should be firing');
 
       	}
 
