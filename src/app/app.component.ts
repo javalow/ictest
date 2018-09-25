@@ -88,23 +88,23 @@ export class MyApp {
       		this.platform.ready().then(() => {
       			this.statusBar.styleDefault();
       		});
-          this.rootPage = LoginPage;
-      		// this.auth.afAuth.authState
-      		// 	.subscribe(
-      		// 		user => {
-      		// 			if (user) {
-      		// 				this.rootPage = TabsPage;
-      		// 			} else {
-      		// 				this.rootPage = LoginPage;
-      		// 			}
-      		// 		},
-      		// 		() => {
-      		// 			this.rootPage = WelcomePage;
-      		// 		}
-      		// 	);
-      		// 	// this.intercom.registerIdentifiedUser({email:this.auth.getEmail});
-          //   this.intercom.registerIdentifiedUser("j@avalow.com");
-      		// 	this.intercom.registerForPush();
+          // this.rootPage = LoginPage;
+      		this.auth.afAuth.authState
+      			.subscribe(
+      				user => {
+      					if (user) {
+      						this.rootPage = TabsPage;
+      					} else {
+      						this.rootPage = WelcomePage;
+      					}
+      				},
+      				() => {
+      					this.rootPage = WelcomePage;
+      				}
+      			);
+      			// this.intercom.registerIdentifiedUser({email:this.auth.getEmail});
+            this.intercom.registerIdentifiedUser({email:this.auth.getEmail});
+      			this.intercom.registerForPush();
 
       	}
 

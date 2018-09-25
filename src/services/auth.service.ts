@@ -33,7 +33,7 @@ export class AuthService {
 	}
 
 	get authenticated(): boolean {
-		return this.user !== null;
+		return this.afAuth.authState !== null;
 	}
 
 	get id(): string {
