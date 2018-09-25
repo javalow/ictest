@@ -95,6 +95,7 @@
         <variable name="APP_ID" value="e52f80dd" />
         <variable name="CHANNEL_NAME" value="Master" />
     </plugin>
+    <plugin name="cordova-plugin-badge" spec="^0.8.7" />
     <engine name="android" spec="^7.1.1" />
     <engine name="browser" spec="5.0.4" />
 </widget>

@@ -26,6 +26,9 @@ export class AuthService {
 	getUsername() {
 		return this.user.email;
 	}
+	// getId() {
+	// 	return this.user.uid;
+	// }
 
 	getEmail() {
 		return this.user && this.user.email;

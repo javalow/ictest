@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Intercom } from '@ionic-native/intercom';
+// import { Badge } from '@ionic-native/badge';
 
 @Component({
   selector: 'page-contact',
