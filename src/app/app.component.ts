@@ -17,38 +17,7 @@ import { LoginPage } from '../pages/login/login';
   templateUrl: 'app.html'
 })
 export class MyApp {
-//   rootPage;
-//
-//   constructor(
-//     public platform: Platform,
-//     // statusBar: StatusBar,
-//     private intercom: Intercom,
-//     private auth: AuthService) {
-//     this.platform = platform;
-//
-//       // Okay, so the platform is ready and our plugins are available.
-//       // Here you can do any higher level native things you might need.
-//       // statusBar.styleDefault();
-//       this.auth.afAuth.authState
-//         .subscribe(
-//           user => {
-//             if (user) {
-//               this.rootPage = TabsPage;
-//             } else {
-//               this.rootPage = LoginPage;
-//             }
-//           },
-//           () => {
-//             this.rootPage = LoginPage;
-//           }
-//         );
-//
-//       this.intercom.registerIdentifiedUser({email:"j@avalow.com"});
-//       this.intercom.registerForPush();
-//
-//
-//   }
-// }
+
   pages;
 	rootPage;
   app;
@@ -103,6 +72,9 @@ export class MyApp {
       						this.rootPage = TabsPage;
                   console.log('signed in user:');
                   console.log(user.email);
+                  this.intercom.registerIdentifiedUser({email: user.email});
+                  this.intercom.registerForPush();
+                  console.log('intercom should be firing');
       					} else {
       						this.rootPage = WelcomePage;
       					}
@@ -112,9 +84,9 @@ export class MyApp {
       				}
       			);
       			// this.intercom.registerIdentifiedUser({email:this.auth.getEmail, userID:this.auth.getId});
-            this.intercom.registerIdentifiedUser({email:this.auth.getEmail});
-      			this.intercom.registerForPush();
-            console.log('intercom should be firing');
+
+            // this.intercom.registerIdentifiedUser({email:'j@avalow.com'});
+
 
       	}
 
@@ -155,5 +127,38 @@ export class MyApp {
 //       // this.intercom.setLauncherVisibility('VISIBLE');
 //
 //     });
+//   }
+// }
+// Also working - home page
+//   rootPage;
+//
+//   constructor(
+//     public platform: Platform,
+//     // statusBar: StatusBar,
+//     private intercom: Intercom,
+//     private auth: AuthService) {
+//     this.platform = platform;
+//
+//       // Okay, so the platform is ready and our plugins are available.
+//       // Here you can do any higher level native things you might need.
+//       // statusBar.styleDefault();
+//       this.auth.afAuth.authState
+//         .subscribe(
+//           user => {
+//             if (user) {
+//               this.rootPage = TabsPage;
+//             } else {
+//               this.rootPage = LoginPage;
+//             }
+//           },
+//           () => {
+//             this.rootPage = LoginPage;
+//           }
+//         );
+//
+//       this.intercom.registerIdentifiedUser({email:"j@avalow.com"});
+//       this.intercom.registerForPush();
+//
+//
 //   }
 // }

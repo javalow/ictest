@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>ictest</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>Avalow Garden Coach</name>
+    <description>Your team for garden success!</description>
+    <author email="grow@avalow.com" href="http://avalow.com/">Avalow Grow Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -95,7 +95,7 @@
         <variable name="APP_ID" value="e52f80dd" />
         <variable name="CHANNEL_NAME" value="Master" />
     </plugin>
-    <plugin name="cordova-plugin-badge" spec="^0.8.7" />
+
     <engine name="android" spec="^7.1.1" />
     <engine name="browser" spec="5.0.4" />
 </widget>
