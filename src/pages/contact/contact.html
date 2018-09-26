@@ -19,10 +19,23 @@
   <ion-col text-center>
      <button ion-button round large (click)="visible()">
        <!-- <ion-icon large name="ios-chatbubbles-outline"></ion-icon> -->
-       <p>Ask the Grow Team</p>
+       <p>Message Composer</p>
      </button>
    </ion-col>
+   <br>
+   <ion-col text-center>
+      <button ion-button round large (click)="launch()">
+        <!-- <ion-icon large name="ios-chatbubbles-outline"></ion-icon> -->
+        <p>Messenger</p>
+      </button>
+    </ion-col>
  </ion-row>
+ <h2>Past Conversations</h2>
+ <p></p>
+     <ion-item (click)="conversations()">
+      <ion-icon name="add-circle">Load</ion-icon>
+     </ion-item>
+
 
 
 </ion-content>
